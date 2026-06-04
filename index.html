@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional portfolio of John Doe - Software Engineer specializing in web development">
+    <meta name="keywords" content="software engineer, web developer, portfolio, frontend, backend">
+    <meta name="author" content="John Doe">
+    
+    <title>John Doe | Software Engineer</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav__container container">
+            <a href="#home" class="nav__logo">JD</a>
+            
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link active" data-i18n="nav.home">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#experience" class="nav__link" data-i18n="nav.experience">Experience</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#education" class="nav__link" data-i18n="nav.education">Education</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#contact" class="nav__link" data-i18n="nav.contact">Contact</a>
+                    </li>
+                </ul>
+                
+                <div class="nav__controls">
+                    <!-- Language Switcher -->
+                    <button class="nav__lang-btn" id="lang-toggle" aria-label="Switch language">
+                        <span class="nav__lang-text">ES</span>
+                    </button>
+                    
+                    <!-- Theme Switcher -->
+                    <button class="nav__theme-btn" id="theme-toggle" aria-label="Toggle theme">
+                        <i class="fas fa-sun nav__theme-icon"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars nav__toggle-icon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Section -->
+        <section class="hero section" id="home">
+            <div class="hero__container container">
+                <div class="hero__content">
+                    <div class="hero__greeting">
+                        <span class="hero__wave">👋</span>
+                        <span class="hero__greeting-text" data-i18n="home.greeting">Hi, I'm</span>
+                    </div>
+                    
+                    <h1 class="hero__name" data-i18n="home.name">John Doe</h1>
+                    
+                    <h2 class="hero__title">
+                        <span class="hero__title-text" data-i18n="home.title">Software Engineer</span>
+                        <span class="hero__title-cursor">|</span>
+                    </h2>
+                    
+                    <p class="hero__summary" data-i18n="home.summary">
+                        Passionate software engineer with 5+ years of experience building scalable web applications. 
+                        Specializing in frontend development with React and modern JavaScript frameworks, 
+                        while maintaining strong backend skills with Node.js and Python.
+                    </p>
+                    
+                    <div class="hero__cta">
+                        <a href="assets/documents/resume-placeholder.pdf" class="btn btn--primary" download>
+                            <i class="fas fa-download btn__icon"></i>
+                            <span data-i18n="home.downloadResume">Download Resume</span>
+                        </a>
+                        <a href="#contact" class="btn btn--secondary">
+                            <i class="fas fa-envelope btn__icon"></i>
+                            <span data-i18n="home.contactMe">Contact Me</span>
+                        </a>
+                    </div>
+                    
+                    <div class="hero__social">
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="mailto:john.doe@example.com" class="social-link" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hero__image">
+                    <div class="hero__profile">
+                        <!-- Replace with actual profile image: assets/images/profile.jpg -->
+                        <div class="hero__profile-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="experience section" id="experience">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title" data-i18n="experience.title">Professional Experience</h2>
+                    <p class="section__subtitle" data-i18n="experience.subtitle">My career journey and key achievements</p>
+                </div>
+                
+                <div class="timeline">
+                    <!-- Experience Item 1 -->
+                    <div class="timeline__item reveal">
+                        <div class="timeline__marker"></div>
+                        <div class="experience-card">
+                            <div class="experience-card__header">
+                                <div class="experience-card__company">
+                                    <h3 class="experience-card__role" data-i18n="experience.items.0.role">Senior Frontend Developer</h3>
+                                    <span class="experience-card__company-name" data-i18n="experience.items.0.company">Tech Solutions Inc.</span>
+                                </div>
+                                <div class="experience-card__period">
+                                    <span class="experience-card__date" data-i18n="experience.items.0.period">Jan 2022 - Present</span>
+                                    <span class="experience-card__location" data-i18n="experience.items.0.location">San Francisco, CA</span>
+                                </div>
+                            </div>
+                            
+                            <p class="experience-card__description" data-i18n="experience.items.0.description">
+                                Led the frontend development team in building a next-generation SaaS platform. 
+                                Implemented complex UI components and optimized application performance, 
+                                resulting in a 40% improvement in load times.
+                            </p>
+                            
+                            <div class="experience-card__responsibilities">
+                                <h4 class="experience-card__subtitle" data-i18n="experience.responsibilities">Key Responsibilities:</h4>
+                                <ul class="experience-card__list">
+                                    <li data-i18n="experience.items.0.responsibilities.0">Architected and implemented responsive web applications using React and TypeScript</li>
+                                    <li data-i18n="experience.items.0.responsibilities.1">Mentored junior developers and conducted code reviews</li>
+                                    <li data-i18n="experience.items.0.responsibilities.2">Collaborated with UX designers to implement pixel-perfect interfaces</li>
+                                    <li data-i18n="experience.items.0.responsibilities.3">Optimized application performance through code splitting and lazy loading</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="experience-card__tech">
+                                <h4 class="experience-card__subtitle" data-i18n="experience.technologies">Technologies:</h4>
+                                <div class="experience-card__tags">
+                                    <span class="tag">React</span>
+                                    <span class="tag">TypeScript</span>
+                                    <span class="tag">Next.js</span>
+                                    <span class="tag">Tailwind CSS</span>
+                                    <span class="tag">GraphQL</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Multimedia placeholder -->
+                            <div class="experience-card__media">
+                                <div class="media-placeholder">
+                                    <!-- Replace with: assets/images/experience-01.jpg -->
+                                    <i class="fas fa-image"></i>
+                                    <span data-i18n="experience.mediaPlaceholder">Project Screenshot</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Experience Item 2 -->
+                    <div class="timeline__item reveal">
+                        <div class="timeline__marker"></div>
+                        <div class="experience-card">
+                            <div class="experience-card__header">
+                                <div class="experience-card__company">
+                                    <h3 class="experience-card__role" data-i18n="experience.items.1.role">Full Stack Developer</h3>
+                                    <span class="experience-card__company-name" data-i18n="experience.items.1.company">Digital Innovations Ltd.</span>
+                                </div>
+                                <div class="experience-card__period">
+                                    <span class="experience-card__date" data-i18n="experience.items.1.period">Jun 2019 - Dec 2021</span>
+                                    <span class="experience-card__location" data-i18n="experience.items.1.location">New York, NY</span>
+                                </div>
+                            </div>
+                            
+                            <p class="experience-card__description" data-i18n="experience.items.1.description">
+                                Developed and maintained multiple web applications for enterprise clients. 
+                                Implemented RESTful APIs and integrated third-party services to deliver 
+                                comprehensive business solutions.
+                            </p>
+                            
+                            <div class="experience-card__responsibilities">
+                                <h4 class="experience-card__subtitle" data-i18n="experience.responsibilities">Key Responsibilities:</h4>
+                                <ul class="experience-card__list">
+                                    <li data-i18n="experience.items.1.responsibilities.0">Built scalable backend services using Node.js and Express</li>
+                                    <li data-i18n="experience.items.1.responsibilities.1">Designed and implemented database schemas with PostgreSQL</li>
+                                    <li data-i18n="experience.items.1.responsibilities.2">Created responsive frontend interfaces with Vue.js</li>
+                                    <li data-i18n="experience.items.1.responsibilities.3">Implemented CI/CD pipelines using GitHub Actions</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="experience-card__tech">
+                                <h4 class="experience-card__subtitle" data-i18n="experience.technologies">Technologies:</h4>
+                                <div class="experience-card__tags">
+                                    <span class="tag">Node.js</span>
+                                    <span class="tag">Vue.js</span>
+                                    <span class="tag">PostgreSQL</span>
+                                    <span class="tag">Docker</span>
+                                    <span class="tag">AWS</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Multimedia placeholder -->
+                            <div class="experience-card__media">
+                                <div class="media-placeholder">
+                                    <!-- Replace with: assets/images/experience-02.jpg -->
+                                    <i class="fas fa-image"></i>
+                                    <span data-i18n="experience.mediaPlaceholder">Project Screenshot</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="education section" id="education">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title" data-i18n="education.title">Education & Certifications</h2>
+                    <p class="section__subtitle" data-i18n="education.subtitle">Academic background and professional development</p>
+                </div>
+                
+                <div class="education__grid">
+                    <!-- Degree Card -->
+                    <div class="education-card reveal">
+                        <div class="education-card__icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="education-card__content">
+                            <h3 class="education-card__title" data-i18n="education.degrees.0.title">Bachelor of Science in Computer Science</h3>
+                            <span class="education-card__institution" data-i18n="education.degrees.0.institution">University of Technology</span>
+                            <span class="education-card__period" data-i18n="education.degrees.0.period">2015 - 2019</span>
+                            <p class="education-card__description" data-i18n="education.degrees.0.description">
+                                Graduated with honors. Specialized in software engineering and distributed systems. 
+                                Completed capstone project on real-time data processing.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Certification Card -->
+                    <div class="education-card reveal">
+                        <div class="education-card__icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="education-card__content">
+                            <h3 class="education-card__title" data-i18n="education.certifications.0.title">AWS Certified Solutions Architect</h3>
+                            <span class="education-card__institution" data-i18n="education.certifications.0.institution">Amazon Web Services</span>
+                            <span class="education-card__period" data-i18n="education.certifications.0.period">2022</span>
+                            <p class="education-card__description" data-i18n="education.certifications.0.description">
+                                Professional certification demonstrating expertise in designing distributed systems 
+                                and architectures on AWS platform.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Languages Card -->
+                    <div class="education-card reveal">
+                        <div class="education-card__icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <div class="education-card__content">
+                            <h3 class="education-card__title" data-i18n="education.languages.title">Languages</h3>
+                            <div class="education-card__languages">
+                                <div class="language-item">
+                                    <span class="language-item__name" data-i18n="education.languages.0.name">English</span>
+                                    <div class="language-item__level">
+                                        <span class="language-item__dot filled"></span>
+                                        <span class="language-item__dot filled"></span>
+                                        <span class="language-item__dot filled"></span>
+                                        <span class="language-item__dot filled"></span>
+                                        <span class="language-item__dot filled"></span>
+                                    </div>
+                                    <span class="language-item__label" data-i18n="education.languages.0.level">Native</span>
+                                </div>
+                                <div class="language-item">
+                                    <span class="language-item__name" data-i18n="education.languages.1.name">Spanish</span>
+                                    <div class="language-item__level">
+                                        <span class="language-item__dot filled"></span>
+                                        <span class="language-item__dot filled"></span>
+                                        <span class="language-item__dot filled"></span>
+                                        <span class="language-item__dot filled"></span>
+                                        <span class="language-item__dot"></span>
+                                    </div>
+                                    <span class="language-item__label" data-i18n="education.languages.1.level">Advanced</span>
+                                </div>
+                                <div class="language-item">
+                                    <span class="language-item__name" data-i18n="education.languages.2.name">French</span>
+                                    <div class="language-item__level">
+                                        <span class="language-item__dot filled"></span>
+                                        <span class="language-item__dot filled"></span>
+                                        <span class="language-item__dot"></span>
+                                        <span class="language-item__dot"></span>
+                                        <span class="language-item__dot"></span>
+                                    </div>
+                                    <span class="language-item__label" data-i18n="education.languages.2.level">Intermediate</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional Training Card -->
+                    <div class="education-card reveal">
+                        <div class="education-card__icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="education-card__content">
+                            <h3 class="education-card__title" data-i18n="education.training.title">Additional Training</h3>
+                            <ul class="education-card__list">
+                                <li data-i18n="education.training.items.0">Advanced React Patterns - Frontend Masters (2023)</li>
+                                <li data-i18n="education.training.items.1">System Design Interview Prep - Educative (2022)</li>
+                                <li data-i18n="education.training.items.2">Docker and Kubernetes Complete Guide - Udemy (2021)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact section" id="contact">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title" data-i18n="contact.title">Get In Touch</h2>
+                    <p class="section__subtitle" data-i18n="contact.subtitle">Feel free to reach out for opportunities or just to say hello</p>
+                </div>
+                
+                <div class="contact__grid">
+                    <div class="contact__info reveal">
+                        <div class="contact__info-item">
+                            <i class="fas fa-envelope contact__info-icon"></i>
+                            <div>
+                                <h3 class="contact__info-title" data-i18n="contact.email">Email</h3>
+                                <a href="mailto:john.doe@example.com" class="contact__info-link">john.doe@example.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact__info-item">
+                            <i class="fas fa-map-marker-alt contact__info-icon"></i>
+                            <div>
+                                <h3 class="contact__info-title" data-i18n="contact.location">Location</h3>
+                                <span class="contact__info-text" data-i18n="contact.locationValue">San Francisco, California</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact__info-item">
+                            <i class="fas fa-phone contact__info-icon"></i>
+                            <div>
+                                <h3 class="contact__info-title" data-i18n="contact.phone">Phone</h3>
+                                <a href="tel:+1234567890" class="contact__info-link">+1 (234) 567-890</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact__social">
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <form class="contact__form reveal" id="contact-form" novalidate>
+                        <div class="form-group">
+                            <label for="name" class="form-label" data-i18n="contact.form.name">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-input" required 
+                                   data-i18n-placeholder="contact.form.namePlaceholder" placeholder="Enter your full name">
+                            <span class="form-error" id="name-error"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label" data-i18n="contact.form.email">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-input" required 
+                                   data-i18n-placeholder="contact.form.emailPlaceholder" placeholder="Enter your email address">
+                            <span class="form-error" id="email-error"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject" class="form-label" data-i18n="contact.form.subject">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-input" required 
+                                   data-i18n-placeholder="contact.form.subjectPlaceholder" placeholder="What is this about?">
+                            <span class="form-error" id="subject-error"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label" data-i18n="contact.form.message">Message</label>
+                            <textarea id="message" name="message" class="form-input form-textarea" rows="5" required 
+                                      data-i18n-placeholder="contact.form.messagePlaceholder" placeholder="Write your message here..."></textarea>
+                            <span class="form-error" id="message-error"></span>
+                        </div>
+                        
+                        <button type="submit" class="btn btn--primary btn--full">
+                            <i class="fas fa-paper-plane btn__icon"></i>
+                            <span data-i18n="contact.form.submit">Send Message</span>
+                        </button>
+                        
+                        <!-- Success State -->
+                        <div class="form-success" id="form-success">
+                            <i class="fas fa-check-circle form-success__icon"></i>
+                            <h3 class="form-success__title" data-i18n="contact.form.successTitle">Message Sent!</h3>
+                            <p class="form-success__text" data-i18n="contact.form.successText">
+                                Thank you for reaching out. I'll get back to you within 24-48 hours.
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <p class="footer__text">
+                    <span data-i18n="footer.copyright">© 2024 John Doe. All rights reserved.</span>
+                </p>
+                <div class="footer__links">
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
