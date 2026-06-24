@@ -140,7 +140,7 @@ const translations = {
 ### Usage in HTML
 
 ```html
-<h1 data-i18n="home.name">John Doe</h1>
+<h1 data-i18n="home.name">Javier Gil</h1>
 ```
 
 ### Application

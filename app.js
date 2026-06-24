@@ -11,9 +11,9 @@ const translations = {
         },
         home: {
             greeting: "Hi, I'm",
-            name: "John Doe",
-            title: "Software Engineer",
-            summary: "Passionate software engineer with 5+ years of experience building scalable web applications. Specializing in frontend development with React and modern JavaScript frameworks, while maintaining strong backend skills with Node.js and Python.",
+            name: "Javier Gil",
+            title: "Game designer",
+            summary: "Born in Madrid. Lover of games, music, and technology. Over 15 years of experience in IT consulting, primarily in backend web development.",
             downloadResume: "Download Resume",
             contactMe: "Contact Me"
         },
@@ -25,10 +25,10 @@ const translations = {
             mediaPlaceholder: "Project Screenshot",
             items: [
                 {
-                    role: "Senior Frontend Developer",
-                    company: "Tech Solutions Inc.",
-                    period: "Jan 2022 - Present",
-                    location: "San Francisco, CA",
+                    role: "Game designer",
+                    company: "Unwoven",
+                    period: "Sept 2025 - Present",
+                    location: "Madrid, Spain",
                     description: "Led the frontend development team in building a next-generation SaaS platform. Implemented complex UI components and optimized application performance, resulting in a 40% improvement in load times.",
                     responsibilities: [
                         "Architected and implemented responsive web applications using React and TypeScript",
@@ -38,8 +38,8 @@ const translations = {
                     ]
                 },
                 {
-                    role: "Full Stack Developer",
-                    company: "Digital Innovations Ltd.",
+                    role: "Game designer",
+                    company: "E-Mask.",
                     period: "Jun 2019 - Dec 2021",
                     location: "New York, NY",
                     description: "Developed and maintained multiple web applications for enterprise clients. Implemented RESTful APIs and integrated third-party services to deliver comprehensive business solutions.",
@@ -74,9 +74,8 @@ const translations = {
             languages: {
                 title: "Languages",
                 items: [
-                    { name: "English", level: "Native" },
-                    { name: "Spanish", level: "Advanced" },
-                    { name: "French", level: "Intermediate" }
+                    { name: "Spanish", level: "Native" },
+                    { name: "English", level: "Advance" }
                 ]
             },
             training: {
@@ -92,9 +91,7 @@ const translations = {
             title: "Get In Touch",
             subtitle: "Feel free to reach out for opportunities or just to say hello",
             email: "Email",
-            location: "Location",
-            locationValue: "San Francisco, California",
-            phone: "Phone",
+            discord: "Discord",
             form: {
                 name: "Full Name",
                 namePlaceholder: "Enter your full name",
@@ -116,21 +113,21 @@ const translations = {
             }
         },
         footer: {
-            copyright: "© 2024 John Doe. All rights reserved."
+            copyright: "© 2026 Made by Gilpe with ♥️."
         }
     },
     es: {
         nav: {
             home: "Inicio",
             experience: "Experiencia",
-            education: "Educación",
+            education: "Formación",
             contact: "Contacto"
         },
         home: {
             greeting: "Hola, soy",
-            name: "John Doe",
-            title: "Ingeniero de Software",
-            summary: "Ingeniero de software apasionado con más de 5 años de experiencia construyendo aplicaciones web escalables. Especializado en desarrollo frontend con React y frameworks modernos de JavaScript, manteniendo sólidas habilidades backend con Node.js y Python.",
+            name: "Javier Gil",
+            title: "Diseñador de videojuegos",
+            summary: "Nacido en Madrid. Apasionado de los videojuegos, la música y la tecnología. Más de 15 años de experiencia en consultoría informática, principalmente en desarrollo web backend.",
             downloadResume: "Descargar CV",
             contactMe: "Contáctame"
         },
@@ -191,9 +188,8 @@ const translations = {
             languages: {
                 title: "Idiomas",
                 items: [
-                    { name: "Inglés", level: "Nativo" },
-                    { name: "Español", level: "Avanzado" },
-                    { name: "Francés", level: "Intermedio" }
+                    { name: "Español", level: "Nativo" },
+                    { name: "Inglés", level: "Avanzado" }
                 ]
             },
             training: {
@@ -209,9 +205,7 @@ const translations = {
             title: "Ponte en Contacto",
             subtitle: "No dudes en comunicarte por oportunidades o solo para saludar",
             email: "Correo",
-            location: "Ubicación",
-            locationValue: "San Francisco, California",
-            phone: "Teléfono",
+            discord: "Discord",
             form: {
                 name: "Nombre Completo",
                 namePlaceholder: "Ingresa tu nombre completo",
@@ -233,7 +227,7 @@ const translations = {
             }
         },
         footer: {
-            copyright: "© 2024 John Doe. Todos los derechos reservados."
+            copyright: "© 2026 Hecho por Gilpe con ♥️."
         }
     }
 };
@@ -244,7 +238,7 @@ const translations = {
 const App = {
     currentLang: 'en',
     currentTheme: 'dark',
-    
+
     init() {
         this.theme.init();
         this.i18n.init();
@@ -262,23 +256,23 @@ App.theme = {
     init() {
         const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
         this.apply(savedTheme);
-        
+
         const toggleBtn = document.getElementById('theme-toggle');
         if (toggleBtn) {
             toggleBtn.addEventListener('click', () => this.toggle());
         }
     },
-    
+
     toggle() {
         const newTheme = App.currentTheme === 'dark' ? 'light' : 'dark';
         this.apply(newTheme);
     },
-    
+
     apply(theme) {
         App.currentTheme = theme;
         document.documentElement.setAttribute('data-theme', theme);
         localStorage.setItem('portfolio-theme', theme);
-        
+
         const icon = document.querySelector('.nav__theme-icon');
         if (icon) {
             icon.className = theme === 'dark' ? 'fas fa-sun nav__theme-icon' : 'fas fa-moon nav__theme-icon';
@@ -293,7 +287,7 @@ App.i18n = {
     init() {
         const savedLang = localStorage.getItem('portfolio-lang') || 'en';
         this.apply(savedLang);
-        
+
         const langBtn = document.getElementById('lang-toggle');
         if (langBtn) {
             langBtn.addEventListener('click', () => {
@@ -302,20 +296,20 @@ App.i18n = {
             });
         }
     },
-    
+
     apply(lang) {
         App.currentLang = lang;
         document.documentElement.setAttribute('lang', lang);
         localStorage.setItem('portfolio-lang', lang);
-        
+
         const langText = document.querySelector('.nav__lang-text');
         if (langText) {
             langText.textContent = lang === 'en' ? 'ES' : 'EN';
         }
-        
+
         this.updateContent(lang);
     },
-    
+
     updateContent(lang) {
         const elements = document.querySelectorAll('[data-i18n]');
         elements.forEach(el => {
@@ -325,7 +319,7 @@ App.i18n = {
                 el.textContent = translation;
             }
         });
-        
+
         const placeholders = document.querySelectorAll('[data-i18n-placeholder]');
         placeholders.forEach(el => {
             const key = el.getAttribute('data-i18n-placeholder');
@@ -335,11 +329,11 @@ App.i18n = {
             }
         });
     },
-    
+
     getTranslation(key, lang) {
         const keys = key.split('.');
         let value = translations[lang];
-        
+
         for (const k of keys) {
             if (value && typeof value === 'object') {
                 value = value[k];
@@ -347,7 +341,7 @@ App.i18n = {
                 return null;
             }
         }
-        
+
         return value;
     }
 };
@@ -361,17 +355,17 @@ App.nav = {
         this.setupSmoothScroll();
         this.setupActiveSection();
     },
-    
+
     setupMobileMenu() {
         const toggleBtn = document.getElementById('nav-toggle');
         const menu = document.getElementById('nav-menu');
-        
+
         if (toggleBtn && menu) {
             toggleBtn.addEventListener('click', () => {
                 toggleBtn.classList.toggle('active');
                 menu.classList.toggle('active');
             });
-            
+
             const links = menu.querySelectorAll('.nav__link');
             links.forEach(link => {
                 link.addEventListener('click', () => {
@@ -381,7 +375,7 @@ App.nav = {
             });
         }
     },
-    
+
     setupSmoothScroll() {
         const links = document.querySelectorAll('a[href^="#"]');
         links.forEach(link => {
@@ -389,11 +383,11 @@ App.nav = {
                 e.preventDefault();
                 const targetId = link.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
-                
+
                 if (targetElement) {
                     const navHeight = document.querySelector('.nav').offsetHeight;
                     const targetPosition = targetElement.offsetTop - navHeight;
-                    
+
                     window.scrollTo({
                         top: targetPosition,
                         behavior: 'smooth'
@@ -402,17 +396,17 @@ App.nav = {
             });
         });
     },
-    
+
     setupActiveSection() {
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.nav__link');
-        
+
         const observerOptions = {
             root: null,
             rootMargin: '-20% 0px -80% 0px',
             threshold: 0
         };
-        
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -426,7 +420,7 @@ App.nav = {
                 }
             });
         }, observerOptions);
-        
+
         sections.forEach(section => observer.observe(section));
     }
 };
@@ -438,16 +432,16 @@ App.scroll = {
     init() {
         this.observeElements();
     },
-    
+
     observeElements() {
         const elements = document.querySelectorAll('.reveal');
-        
+
         const observerOptions = {
             root: null,
             rootMargin: '0px 0px -50px 0px',
             threshold: 0.1
         };
-        
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -456,7 +450,7 @@ App.scroll = {
                 }
             });
         }, observerOptions);
-        
+
         elements.forEach(el => observer.observe(el));
     }
 };
@@ -471,23 +465,23 @@ App.form = {
             form.addEventListener('submit', (e) => this.handleSubmit(e));
         }
     },
-    
+
     handleSubmit(e) {
         e.preventDefault();
-        
+
         if (this.validate()) {
             this.showSuccess();
         }
     },
-    
+
     validate() {
         let isValid = true;
         const fields = ['name', 'email', 'subject', 'message'];
-        
+
         fields.forEach(field => {
             const input = document.getElementById(field);
             const error = document.getElementById(`${field}-error`);
-            
+
             if (!input.value.trim()) {
                 this.showError(field, translations[App.currentLang].contact.form.errors[field]);
                 isValid = false;
@@ -498,69 +492,69 @@ App.form = {
                 this.clearError(field);
             }
         });
-        
+
         return isValid;
     },
-    
+
     isValidEmail(email) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
     },
-    
+
     showError(field, message) {
         const input = document.getElementById(field);
         const error = document.getElementById(`${field}-error`);
-        
+
         if (input) input.classList.add('error');
         if (error) {
             error.textContent = message;
             error.classList.add('visible');
         }
     },
-    
+
     clearError(field) {
         const input = document.getElementById(field);
         const error = document.getElementById(`${field}-error`);
-        
+
         if (input) input.classList.remove('error');
         if (error) {
             error.textContent = '';
             error.classList.remove('visible');
         }
     },
-    
+
     showSuccess() {
         const form = document.getElementById('contact-form');
         const success = document.getElementById('form-success');
-        
+
         if (form) {
             const inputs = form.querySelectorAll('.form-group');
             inputs.forEach(input => input.style.display = 'none');
             form.querySelector('button[type="submit"]').style.display = 'none';
         }
-        
+
         if (success) {
             success.classList.add('visible');
         }
-        
+
         setTimeout(() => this.reset(), 5000);
     },
-    
+
     reset() {
         const form = document.getElementById('contact-form');
         const success = document.getElementById('form-success');
-        
+
         if (form) {
             form.reset();
             const inputs = form.querySelectorAll('.form-group');
             inputs.forEach(input => input.style.display = 'block');
             form.querySelector('button[type="submit"]').style.display = 'flex';
         }
-        
+
         if (success) {
             success.classList.remove('visible');
         }
-        
+
         ['name', 'email', 'subject', 'message'].forEach(field => {
             this.clearError(field);
         });
@@ -581,7 +575,7 @@ App.scrollTop = {
                     btn.classList.remove('visible');
                 }
             });
-            
+
             btn.addEventListener('click', () => {
                 window.scrollTo({
                     top: 0,

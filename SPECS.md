@@ -63,15 +63,6 @@ The website must communicate professionalism, maturity, credibility, and attenti
 **Layout**: Clean grid system with generous whitespace
 **Interactions**: Subtle, purposeful, performant
 
-## Placeholder Assets
-
-```
-assets/images/profile-placeholder.jpg
-assets/images/experience-01.jpg
-assets/images/experience-02.jpg
-assets/documents/resume-placeholder.pdf
-```
-
 ## Version History
 
 - v1.0 — Initial implementation (Home, Experience, Education, Contact)
