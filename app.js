@@ -330,6 +330,20 @@ App.i18n = {
                 el.setAttribute('placeholder', translation);
             }
         });
+
+        const lists = document.querySelectorAll('[data-i18n-list]');
+        lists.forEach(el => {
+            const key = el.getAttribute('data-i18n-list');
+            const items = this.getTranslation(key, lang);
+            if (Array.isArray(items)) {
+                el.innerHTML = '';
+                items.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = item;
+                    el.appendChild(li);
+                });
+            }
+        });
     },
 
     getTranslation(key, lang) {
