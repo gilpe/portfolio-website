@@ -640,6 +640,7 @@ p {
     color: var(--text-secondary);
     margin-bottom: var(--space-xl);
     line-height: 1.7;
+    font-size: var(--text-sm);
 }
 
 .experience-card__subtitle {
@@ -662,6 +663,7 @@ p {
     margin-bottom: var(--space-md);
     color: var(--text-secondary);
     line-height: 1.6;
+    font-size: var(--text-sm);
 }
 
 .experience-card__list li::before {
@@ -778,6 +780,7 @@ p {
     color: var(--text-secondary);
     line-height: 1.7;
     margin-bottom: var(--space-md);
+    font-size: var(--text-sm);
 }
 
 .education-card__list {
@@ -790,6 +793,7 @@ p {
     margin-bottom: var(--space-md);
     color: var(--text-secondary);
     line-height: 1.6;
+    font-size: var(--text-sm);
 }
 
 .education-card__list li::before {
