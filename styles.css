@@ -807,13 +807,14 @@ p {
 .education-card__languages {
     display: flex;
     flex-direction: column;
-    gap: var(--space-lg);
+    gap: var(--space-2xl);
+    margin-top: var(--space-xl);
 }
 
 .language-item {
     display: flex;
     align-items: center;
-    gap: var(--space-md);
+    justify-content: space-between;
 }
 
 .language-item__name {
@@ -824,12 +825,14 @@ p {
 
 .language-item__level {
     display: flex;
-    gap: var(--space-xs);
+    gap: var(--space-md);
+    width: 140px;
+    justify-content: center;
 }
 
 .language-item__dot {
-    width: 10px;
-    height: 10px;
+    width: 14px;
+    height: 14px;
     border-radius: var(--radius-full);
     background: var(--bg-tertiary);
     border: 1px solid var(--border-color);
@@ -843,6 +846,8 @@ p {
 .language-item__label {
     font-size: var(--text-sm);
     color: var(--text-tertiary);
+    min-width: 70px;
+    text-align: right;
 }
 
 /* ==========================================
@@ -1202,10 +1207,6 @@ p {
         justify-content: flex-start;
     }
     
-    .education__grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
     .contact__grid {
         grid-template-columns: 1fr 1fr;
     }
@@ -1228,6 +1229,10 @@ p {
     
     .timeline__item {
         padding-left: var(--space-4xl);
+    }
+    
+    .education__grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
