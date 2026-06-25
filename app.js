@@ -27,27 +27,27 @@ const translations = {
                 {
                     role: "Game designer",
                     company: "Unwoven",
-                    period: "Sept 2025 - Present",
+                    period: "Oct 2025 - Present",
                     location: "Madrid, Spain",
-                    description: "Led the frontend development team in building a next-generation SaaS platform. Implemented complex UI components and optimized application performance, resulting in a 40% improvement in load times.",
+                    description: "One of the lead designers on the vertical slice of a twin-stick action roguelike.",
                     responsibilities: [
-                        "Architected and implemented responsive web applications using React and TypeScript",
-                        "Mentored junior developers and conducted code reviews",
-                        "Collaborated with UX designers to implement pixel-perfect interfaces",
-                        "Optimized application performance through code splitting and lazy loading"
+                        "Definition of mechanics, systems, and game loops.",
+                        "Level design, progression, and game rules balance.",
+                        "Definition of the user interface and the navigation flow for the user experience.",
+                        "Technical audio implementation and sound events creation."
                     ]
                 },
                 {
                     role: "Game designer",
                     company: "E-Mask.",
                     period: "Jun 2019 - Dec 2021",
-                    location: "New York, NY",
-                    description: "Developed and maintained multiple web applications for enterprise clients. Implemented RESTful APIs and integrated third-party services to deliver comprehensive business solutions.",
+                    location: "Madrid, Spain",
+                    description: "Participated as a designer and animator on this stealth-puzzle game created during the 2026 Global Game Jam.",
                     responsibilities: [
-                        "Built scalable backend services using Node.js and Express",
-                        "Designed and implemented database schemas with PostgreSQL",
-                        "Created responsive frontend interfaces with Vue.js",
-                        "Implemented CI/CD pipelines using GitHub Actions"
+                        "Conceptualization and game idea based on the 'Masks' theme.",
+                        "Design of recurring scenarios for level construction.",
+                        "2D rigging of the main character.",
+                        "Creation of motion animations and their state flow."
                     ]
                 }
             ]
@@ -57,18 +57,18 @@ const translations = {
             subtitle: "Academic background and professional development",
             degrees: [
                 {
-                    title: "Bachelor of Science in Computer Science",
-                    institution: "University of Technology",
-                    period: "2015 - 2019",
-                    description: "Graduated with honors. Specialized in software engineering and distributed systems. Completed capstone project on real-time data processing."
+                    title: "Master's degree in Videogames design and development",
+                    institution: "University Complutense of Madrid",
+                    period: "2025 - 2026",
+                    description: "Specialization in video game development as a game designer."
                 }
             ],
             certifications: [
                 {
-                    title: "AWS Certified Solutions Architect",
-                    institution: "Amazon Web Services",
-                    period: "2022",
-                    description: "Professional certification demonstrating expertise in designing distributed systems and architectures on AWS platform."
+                    title: "Certificate of higher education in Software applications development",
+                    institution: "IES Centro Cultural Salmantino",
+                    period: "2003-2004",
+                    description: "Higher Technician qualification in business application programming."
                 }
             ],
             languages: {
@@ -79,11 +79,12 @@ const translations = {
                 ]
             },
             training: {
-                title: "Additional Training",
+                title: "Certifications",
                 items: [
-                    "Advanced React Patterns - Frontend Masters (2023)",
-                    "System Design Interview Prep - Educative (2022)",
-                    "Docker and Kubernetes Complete Guide - Udemy (2021)"
+                    "Microsoft 70-496: Administering Visual Studio Team Foundation Server (2014).",
+                    "Microsoft 70-497: Software Testing with Visual Studio (2014).",
+                    "Microsoft AI-100: Azure AI Engineer Associate (2020).",
+                    "Microsoft AZ-900: Azure Fundamentals (2020)."
                 ]
             }
         },
@@ -139,29 +140,29 @@ const translations = {
             mediaPlaceholder: "Captura de Proyecto",
             items: [
                 {
-                    role: "Desarrollador Frontend Senior",
-                    company: "Tech Solutions Inc.",
-                    period: "Ene 2022 - Presente",
-                    location: "San Francisco, CA",
-                    description: "Lideré el equipo de desarrollo frontend en la construcción de una plataforma SaaS de nueva generación. Implementé componentes de UI complejos y optimicé el rendimiento de la aplicación, logrando una mejora del 40% en los tiempos de carga.",
+                    role: "Game designer",
+                    company: "Unwoven",
+                    period: "Oct 2025 - Presente",
+                    location: "Madrid, España",
+                    description: "Uno de los diseñadores principales en el vertical slice de un roguelike de acción twin stick.",
                     responsibilities: [
-                        "Arquitecté e implementé aplicaciones web responsivas usando React y TypeScript",
-                        "Mentoricé desarrolladores junior y realicé revisiones de código",
-                        "Colaboré con diseñadores UX para implementar interfaces pixel-perfect",
-                        "Optimicé el rendimiento mediante code splitting y lazy loading"
+                        "Definición de mecánicas, sistemas y loops de juego.",
+                        "Diseño de niveles, progresión y balanceo de reglas del juego.",
+                        "Definición de la interfaz de usuario y su flujo de navegación para la experiencia de usuario.",
+                        "Implementación técnica de audio y creación de eventos sonoros."
                     ]
                 },
                 {
-                    role: "Desarrollador Full Stack",
-                    company: "Digital Innovations Ltd.",
-                    period: "Jun 2019 - Dic 2021",
-                    location: "Nueva York, NY",
-                    description: "Desarrollé y mantuve múltiples aplicaciones web para clientes empresariales. Implementé APIs RESTful e integré servicios de terceros para entregar soluciones de negocio completas.",
+                    role: "Game designer",
+                    company: "E-Mask",
+                    period: "Ene 2026 - Feb 2026",
+                    location: "Madrid, España",
+                    description: "Participación como diseñador y animador en este juego de sigilo y puzzles elaborado en la Global Game Jam de 2026.",
                     responsibilities: [
-                        "Construí servicios backend escalables usando Node.js y Express",
-                        "Diseñé e implementé esquemas de base de datos con PostgreSQL",
-                        "Creé interfaces frontend responsivas con Vue.js",
-                        "Implementé pipelines de CI/CD usando GitHub Actions"
+                        "Conceptualización e idea de juego basada en la temática 'Mascaras'.",
+                        "Diseño situaciones recurrentes para la construcción de niveles.",
+                        "Rig 2D del personaje principal.",
+                        "Creación de animaciones y su flujo de estados.",
                     ]
                 }
             ]
@@ -171,18 +172,18 @@ const translations = {
             subtitle: "Formación académica y desarrollo profesional",
             degrees: [
                 {
-                    title: "Licenciatura en Ciencias de la Computación",
-                    institution: "Universidad de Tecnología",
-                    period: "2015 - 2019",
-                    description: "Graduado con honores. Especializado en ingeniería de software y sistemas distribuidos. Completé proyecto de fin de carrera sobre procesamiento de datos en tiempo real."
-                }
+                    title: "Master de Diseño y desarrollo de videojuegos",
+                    institution: "Universidad Complutense de Madrid",
+                    period: "2025 - 2026",
+                    description: "Especialización en el desarrollo de videojuegos como Game designer."
+                },
             ],
             certifications: [
                 {
-                    title: "AWS Certified Solutions Architect",
-                    institution: "Amazon Web Services",
-                    period: "2022",
-                    description: "Certificación profesional que demuestra experiencia en diseño de sistemas distribuidos y arquitecturas en la plataforma AWS."
+                    title: "Grado superior en Desarrollo de aplicaciones informáticas.",
+                    institution: "IES Centro Cultural Salmantino",
+                    period: "2003-2004",
+                    description: "Titulación de técnico superior en programación de aplicaciones de gestión."
                 }
             ],
             languages: {
@@ -193,11 +194,12 @@ const translations = {
                 ]
             },
             training: {
-                title: "Formación Adicional",
+                title: "Certificaciones",
                 items: [
-                    "Patrones Avanzados de React - Frontend Masters (2023)",
-                    "Preparación para Entrevistas de Diseño de Sistemas - Educative (2022)",
-                    "Guía Completa de Docker y Kubernetes - Udemy (2021)"
+                    "Microsoft 70-496: Administración de Visual Studio Team Foundation Server (2014).",
+                    "Microsoft 70-497: Testing de software con Visual Studio (2014).",
+                    "Microsoft AI-100: Ingeniero de IA asociado en Azure (2020).",
+                    "Microsoft AZ-900: Fundamentos de Azure (2020)."
                 ]
             }
         },
