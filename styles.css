@@ -1164,6 +1164,14 @@ p {
         text-align: center;
     }
     
+    .hero__greeting {
+        justify-content: center;
+    }
+    
+    .hero__title {
+        justify-content: center;
+    }
+    
     .hero__summary {
         margin-left: auto;
         margin-right: auto;
@@ -1197,6 +1205,14 @@ p {
 
     .hero__image {
         order: 0;
+    }
+    
+    .hero__greeting {
+        justify-content: flex-start;
+    }
+    
+    .hero__title {
+        justify-content: flex-start;
     }
     
     .hero__summary {
