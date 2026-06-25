@@ -143,6 +143,26 @@ const translations = {
 <h1 data-i18n="home.name">Javier Gil</h1>
 ```
 
+### Dynamic Lists with data-i18n-list
+
+For arrays of items (like responsibilities or certifications), use `data-i18n-list` to dynamically generate list elements from translation arrays:
+
+```html
+<ul data-i18n-list="experience.roles.0.responsibilities"></ul>
+```
+
+The translation structure should be an array:
+
+```javascript
+responsibilities: [
+  "Led cross-functional team...",
+  "Implemented CI/CD pipeline...",
+  "Reduced deployment time by 40%"
+]
+```
+
+The `updateContent()` method in `app.js` finds elements with `data-i18n-list`, looks up the array path, and creates `<li>` elements for each item. This eliminates the need to hardcode list items in HTML.
+
 ### Application
 
 The `LanguageManager.apply()` function finds all elements with `data-i18n` attributes and updates their `textContent` using the translation lookup path.
