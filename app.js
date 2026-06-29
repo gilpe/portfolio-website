@@ -49,6 +49,19 @@ const translations = {
                         "2D rigging of the main character.",
                         "Creation of motion animations and their state flow."
                     ]
+                },
+                {
+                    role: "IT Consultant",
+                    company: "Deloitte | NTT Data",
+                    period: "Apr 2008 - Jun 2023",
+                    location: "Madrid, Spain",
+                    description: "Career spanning over 15 years in web application development for international projects.",
+                    responsibilities: [
+                        ".NET backend development.",
+                        "Management of client requirements and team tasks.",
+                        "Implementation of Agile methodologies and definition of DevOps processes used by developers.",
+                        "Definition of technical approaches for project pre-sales."
+                    ]
                 }
             ]
         },
@@ -163,6 +176,19 @@ const translations = {
                         "Diseño situaciones recurrentes para la construcción de niveles.",
                         "Rig 2D del personaje principal.",
                         "Creación de animaciones y su flujo de estados.",
+                    ]
+                },
+                {
+                    role: "Consultor IT",
+                    company: "Deloitte | NTT Data",
+                    period: "Abr 2008 - Jun 2023",
+                    location: "Madrid, España",
+                    description: "Carrera de mas 15 años en el desarrollo de aplicaciones web en proyectos internacionales.",
+                    responsibilities: [
+                        "Desarrollo de backend .NET.",
+                        "Gestión de la demanda con el cliente y de las tareas del equipo.",
+                        "Implementación de metodologías ágiles y definición de procesos de DevOps usados por los programadores.",
+                        "Definición de enfoques técnicos en preventa de proyectos."
                     ]
                 }
             ]
