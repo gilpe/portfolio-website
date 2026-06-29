@@ -30,7 +30,7 @@
 /* COMPONENTS — .btn, .card, .badge, .social-link */
 /* NAVIGATION — .nav, .nav-menu, .nav-toggle */
 /* HOME — .hero, .profile, .hero-cta */
-/* EXPERIENCE — .timeline, .timeline-item, .experience-card */
+/* EXPERIENCE — .timeline, .timeline-item, .experience-card, .carousel */
 /* EDUCATION — .education-card, .cert-badge */
 /* CONTACT — .form, .form-group, .form-error, .form-success */
 /* FOOTER */
@@ -90,6 +90,7 @@ const App = {
   nav: { /* NavigationManager */ },
   scroll: { /* ScrollAnimator */ },
   form: { /* ContactForm */ },
+  carousel: { /* CarouselManager */ },
   init() { /* Bootstrap */ }
 };
 ```
@@ -119,6 +120,44 @@ const App = {
 - `showError(field, message)` — Display field error
 - `showSuccess()` — Display success state
 - `reset()` — Clear form after submission
+
+### CarouselManager
+- `init()` — Find all `[data-carousel]` elements, call `setup()` on each
+- `setup(carousel)` — Initialize a single carousel instance
+
+Each carousel supports:
+- **Prev/next buttons** — `.carousel__btn--prev` / `.carousel__btn--next` with wrapping navigation
+- **Dot indicators** — Dynamically generated from slide count, appended to `.carousel__dots`
+- **Touch/swipe** — 50px threshold on `touchstart`/`touchend` events
+- **Single-slide mode** — Adds `.carousel--single` class, hides navigation controls
+
+#### HTML Structure
+
+```html
+<div class="carousel" data-carousel>
+    <div class="carousel__track">
+        <div class="carousel__slide">
+            <img src="assets/images/example.jpg" alt="Description">
+        </div>
+    </div>
+    <button class="carousel__btn carousel__btn--prev" aria-label="Previous slide">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="carousel__btn carousel__btn--next" aria-label="Next slide">
+        <i class="fas fa-chevron-right"></i>
+    </button>
+    <div class="carousel__dots"></div>
+</div>
+```
+
+#### CSS Key Properties
+- Container: `aspect-ratio: 16/9`, `overflow: hidden`, `border-radius: var(--radius-md)`
+- Images: `object-fit: cover` (crops to frame, no distortion)
+- Buttons: Appear on hover, semi-transparent background, circular
+- Dots: Positioned at bottom center, active dot is brighter and scaled up
+
+#### Adding Slides
+Add more `<div class="carousel__slide"><img src="..."></div>` elements inside `.carousel__track`. The JS automatically generates the corresponding dot indicators.
 
 ## Internationalization
 
@@ -199,4 +238,5 @@ The architecture supports:
 
 ## Version History
 
+- v1.1 — Added image carousel to experience cards with 16:9 framing, navigation controls, and touch support
 - v1.0 — Initial implementation with Home, Experience, Education, Contact sections

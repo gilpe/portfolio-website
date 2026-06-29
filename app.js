@@ -42,12 +42,23 @@ const translations = {
                     company: "E-Mask.",
                     period: "Jun 2019 - Dec 2021",
                     location: "Madrid, Spain",
-                    description: "Participated as a designer and animator on this stealth-puzzle game created during the 2026 Global Game Jam.",
+                    description: "Participated as a designer and animator on this stealth-puzzle game created during the 2026 Global Game Jam weekend.",
                     responsibilities: [
                         "Conceptualization and game idea based on the 'Masks' theme.",
                         "Design of recurring scenarios for level construction.",
                         "2D rigging of the main character.",
                         "Creation of motion animations and their state flow."
+                    ]
+                },
+                {
+                    role: "Indie Developer",
+                    company: "Mangudai Project",
+                    period: "Sep 2023 - Jun 2025",
+                    location: "Madrid, Spain",
+                    description: "As a Solo developer creating a prototype for a 90s-style point-and-click adventure game.",
+                    responsibilities: [
+                        "Developed the proof of concept in Unity and Godot, using C# as the scripting language.",
+                        "Created pixel art environments for game levels."
                     ]
                 },
                 {
@@ -170,12 +181,23 @@ const translations = {
                     company: "E-Mask",
                     period: "Ene 2026 - Feb 2026",
                     location: "Madrid, España",
-                    description: "Participación como diseñador y animador en este juego de sigilo y puzzles elaborado en la Global Game Jam de 2026.",
+                    description: "Participación como diseñador y animador en este juego de sigilo y puzzles elaborado en el fin de semana de la Global Game Jam de 2026.",
                     responsibilities: [
                         "Conceptualización e idea de juego basada en la temática 'Mascaras'.",
                         "Diseño situaciones recurrentes para la construcción de niveles.",
                         "Rig 2D del personaje principal.",
                         "Creación de animaciones y su flujo de estados.",
+                    ]
+                },
+                {
+                    role: "Indie Developer",
+                    company: "Mangudai Project",
+                    period: "Sept 2023 - Jun 2025",
+                    location: "Madrid, España",
+                    description: "Desarrollo como Solo-Developer de prototipo para Aventura grafica Point-n-Click estilo años 90.",
+                    responsibilities: [
+                        "Desarrollo de la prueba de concepto en Unity y Godot con C# como lenguaje de scripting.",
+                        "Elaboración de escenarios para niveles en pixel art."
                     ]
                 },
                 {
@@ -273,6 +295,7 @@ const App = {
         this.nav.init();
         this.scroll.init();
         this.form.init();
+        this.carousel.init();
         this.scrollTop.init();
     }
 };
@@ -600,6 +623,75 @@ App.form = {
         ['name', 'email', 'subject', 'message'].forEach(field => {
             this.clearError(field);
         });
+    }
+};
+
+/* ==========================================
+   CAROUSEL
+   ========================================== */
+App.carousel = {
+    init() {
+        const carousels = document.querySelectorAll('[data-carousel]');
+        carousels.forEach(carousel => this.setup(carousel));
+    },
+
+    setup(carousel) {
+        const track = carousel.querySelector('.carousel__track');
+        const slides = carousel.querySelectorAll('.carousel__slide');
+        const prevBtn = carousel.querySelector('.carousel__btn--prev');
+        const nextBtn = carousel.querySelector('.carousel__btn--next');
+        const dotsContainer = carousel.querySelector('.carousel__dots');
+
+        if (!track || slides.length === 0) return;
+
+        let currentIndex = 0;
+        const slideCount = slides.length;
+
+        if (slideCount === 1) {
+            carousel.classList.add('carousel--single');
+            return;
+        }
+
+        for (let i = 0; i < slideCount; i++) {
+            const dot = document.createElement('button');
+            dot.classList.add('carousel__dot');
+            if (i === 0) dot.classList.add('carousel__dot--active');
+            dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+            dot.addEventListener('click', () => goTo(i));
+            dotsContainer.appendChild(dot);
+        }
+
+        const dots = dotsContainer.querySelectorAll('.carousel__dot');
+
+        const goTo = (index) => {
+            currentIndex = (index + slideCount) % slideCount;
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('carousel__dot--active', i === currentIndex);
+            });
+        };
+
+        prevBtn.addEventListener('click', () => goTo(currentIndex - 1));
+        nextBtn.addEventListener('click', () => goTo(currentIndex + 1));
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        carousel.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            const diff = touchStartX - touchEndX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) {
+                    goTo(currentIndex + 1);
+                } else {
+                    goTo(currentIndex - 1);
+                }
+            }
+        }, { passive: true });
     }
 };
 
