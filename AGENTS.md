@@ -10,14 +10,21 @@ When styling components:
 - Never use hardcoded values like `clamp(2.5rem, 2rem + 2.5vw, 3.5rem)` directly in component styles
 - Never make one-off tweaks to individual elements that break system consistency
 
+**CRITICAL: Never use hardcoded colors. Always use theme color tokens.**
+
+- All colors must come from CSS custom properties defined in `:root` (dark theme) and `[data-theme="light"]` (light theme)
+- Never use hex values like `#4a9ee0`, `#ffffff`, or named colors directly in component styles
+- If a color variant doesn't exist (e.g., a hover state), create a new token following the naming convention (`--accent-blue-hover`)
+- The only exception is `#ffffff` for text on accent backgrounds, which should still be used sparingly
+
 Example:
 ```css
-/* WRONG - inline clamp value */
-.hero__name { font-size: clamp(3.5rem, 2.5rem + 5vw, 6rem); }
+/* WRONG - hardcoded color */
+.btn--primary:hover { background: #4a9ee0; }
 
 /* CORRECT - use or create a token */
-:root { --text-6xl: clamp(3.5rem, 2.5rem + 5vw, 6rem); }
-.hero__name { font-size: var(--text-6xl); }
+:root { --accent-blue-hover: #4a9ee0; }
+.btn--primary:hover { background: var(--accent-blue-hover); }
 ```
 
 ## Project Structure

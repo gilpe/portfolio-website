@@ -13,6 +13,7 @@
     --text-tertiary: #5c6370;
 
     --accent-blue: #61afef;
+    --accent-blue-hover: #4a9ee0;
     --accent-cyan: #56b6c2;
     --accent-green: #98c379;
     --accent-yellow: #e5c07b;
@@ -86,6 +87,7 @@
     --text-tertiary: #828997;
 
     --accent-blue: #3b84c0;
+    --accent-blue-hover: #2d6fa0;
     --accent-cyan: #3c909b;
     --accent-green: #7a9f60;
     --accent-yellow: #d19a66;
@@ -262,7 +264,7 @@ p {
 }
 
 .btn--primary:hover {
-    background: #4a9ee0;
+    background: var(--accent-blue-hover);
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
 }
@@ -614,10 +616,23 @@ p {
     bottom: var(--space-xl);
     left: 50%;
     transform: translateX(-50%);
-    color: var(--text-tertiary);
+    width: 3rem;
+    height: 3rem;
+    background: var(--accent-blue);
+    color: #ffffff;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: var(--text-lg);
     animation: scrollBounce 2s ease-in-out infinite;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, background var(--transition-base);
+    cursor: pointer;
+    box-shadow: var(--shadow-lg);
+}
+
+.hero__scroll-indicator:hover {
+    background: var(--accent-blue-hover);
 }
 
 .hero__scroll-indicator--hidden {
@@ -626,14 +641,11 @@ p {
 }
 
 @keyframes scrollBounce {
-
-    0%,
-    100% {
+    0%, 100% {
         transform: translateX(-50%) translateY(0);
     }
-
     50% {
-        transform: translateX(-50%) translateY(10px);
+        transform: translateX(-50%) translateY(15px);
     }
 }
 
@@ -830,19 +842,20 @@ p {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 36px;
-    height: 36px;
+    width: 3rem;
+    height: 3rem;
     border-radius: var(--radius-full);
     border: none;
-    background: rgba(0, 0, 0, 0.55);
-    color: #fff;
-    font-size: var(--text-sm);
+    background: var(--accent-blue);
+    color: #ffffff;
+    font-size: var(--text-lg);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
     transition: opacity var(--transition-base), background var(--transition-base);
+    box-shadow: var(--shadow-lg);
     z-index: 2;
 }
 
@@ -851,7 +864,7 @@ p {
 }
 
 .carousel__btn:hover {
-    background: rgba(0, 0, 0, 0.8);
+    background: var(--accent-blue-hover);
 }
 
 .carousel__btn--prev {
@@ -1258,7 +1271,7 @@ p {
 }
 
 .scroll-top:hover {
-    background: #4a9ee0;
+    background: var(--accent-blue-hover);
     transform: translateY(-3px);
 }
 

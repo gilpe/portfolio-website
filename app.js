@@ -831,6 +831,17 @@ App.scrollIndicator = {
             }
         };
 
+        indicator.addEventListener('click', () => {
+            const target = document.getElementById('experience');
+            if (target) {
+                const navHeight = document.querySelector('.nav').offsetHeight;
+                window.scrollTo({
+                    top: target.offsetTop - navHeight,
+                    behavior: 'smooth'
+                });
+            }
+        });
+
         window.addEventListener('scroll', onScroll, { passive: true });
         onScroll();
     }
