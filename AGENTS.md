@@ -1,5 +1,25 @@
 # Portfolio Website - Architecture Guide
 
+## Design System Rules
+
+**CRITICAL: Always use design system tokens. Never use inline values or make micro-adjustments.**
+
+When styling components:
+- Use existing CSS custom properties (`--text-*`, `--space-*`, `--radius-*`, etc.)
+- If a size doesn't exist, create a new token in the `:root` variables section
+- Never use hardcoded values like `clamp(2.5rem, 2rem + 2.5vw, 3.5rem)` directly in component styles
+- Never make one-off tweaks to individual elements that break system consistency
+
+Example:
+```css
+/* WRONG - inline clamp value */
+.hero__name { font-size: clamp(3.5rem, 2.5rem + 5vw, 6rem); }
+
+/* CORRECT - use or create a token */
+:root { --text-6xl: clamp(3.5rem, 2.5rem + 5vw, 6rem); }
+.hero__name { font-size: var(--text-6xl); }
+```
+
 ## Project Structure
 
 ```
