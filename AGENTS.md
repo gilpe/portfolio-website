@@ -29,7 +29,7 @@
 /* LAYOUT UTILITIES — .container, .grid, .flex, .section */
 /* COMPONENTS — .btn, .card, .badge, .social-link */
 /* NAVIGATION — .nav, .nav-menu, .nav-toggle */
-/* HOME — .hero, .profile, .hero-cta */
+/* HOME — .hero, .profile, .hero-cta, .hero__scroll-indicator, animated gradient, entrance animations */
 /* EXPERIENCE — .timeline, .timeline-item, .experience-card, .carousel */
 /* EDUCATION — .education-card, .cert-badge */
 /* CONTACT — .form, .form-group, .form-error, .form-success */
@@ -91,6 +91,8 @@ const App = {
   scroll: { /* ScrollAnimator */ },
   form: { /* ContactForm */ },
   carousel: { /* CarouselManager */ },
+  typing: { /* TypingEffect */ },
+  scrollIndicator: { /* ScrollIndicator */ },
   init() { /* Bootstrap */ }
 };
 ```
@@ -159,6 +161,75 @@ Each carousel supports:
 #### Adding Slides
 Add more `<div class="carousel__slide"><img src="..."></div>` elements inside `.carousel__track`. The JS automatically generates the corresponding dot indicators.
 
+### TypingEffect
+- `init()` — Find `.hero__title-text` element, load titles, start typing animation
+- `loadTitles()` — Read `home.titles` and `home.titlePauses` from current language translations
+- `tick()` — Type/delete characters one at a time, pause between titles
+- `restart()` — Clear timeout, reload titles, restart animation (called on language switch)
+
+The typing effect cycles through titles sequentially (not looping). Each title is typed character-by-character, pauses for a configurable duration, then is deleted before the next title begins. The final title remains displayed permanently.
+
+#### Configuration
+
+```javascript
+home: {
+  titles: ["IT Consultant", "Game Designer"],
+  titlePauses: [2000],  // Pause (ms) after each title before deleting
+}
+```
+
+- `titles` — Array of strings to type in order
+- `titlePauses` — Array of pause durations (ms) after each title; falls back to `pauseEnd` (2000ms) if not specified
+- `typeSpeed` — 80ms per character typing
+- `deleteSpeed` — 40ms per character deleting
+- `pauseStart` — 500ms pause before typing the next title
+
+Respects `prefers-reduced-motion`: shows the first title statically without animation.
+
+### ScrollIndicator
+- `init()` — Find `.hero__scroll-indicator` element, attach scroll listener
+- Adds `hero__scroll-indicator--hidden` class when `scrollY > 100px` to fade it out
+- Hidden on small mobile (< 576px) via CSS
+
+## Hero Section
+
+### Animated Gradient Background
+The `.hero` section uses an animated gradient background that shifts slowly over a 20-second cycle:
+
+```css
+background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-primary) 100%);
+background-size: 400% 400%;
+animation: heroGradient 20s ease infinite;
+```
+
+### Entrance Animations
+Hero content elements fade and slide up sequentially on page load using `@keyframes fadeSlideUp`:
+
+| Element | Delay |
+|---|---|
+| `.hero__greeting` | 0s |
+| `.hero__name` | 0.15s |
+| `.hero__title` | 0.3s |
+| `.hero__summary` | 0.45s |
+| `.hero__cta` | 0.6s |
+| `.hero__social` | 0.75s |
+| `.hero__image` | 0.3s (0.8s duration) |
+
+All entrance animations are disabled when `prefers-reduced-motion: reduce` is active.
+
+### Scroll Indicator
+An animated bouncing chevron at the bottom of the hero section hints users to scroll:
+
+```html
+<div class="hero__scroll-indicator" aria-hidden="true">
+    <i class="fas fa-chevron-down"></i>
+</div>
+```
+
+- Bounces vertically using `@keyframes scrollBounce` (2s cycle)
+- Fades out when `scrollY > 100px` via `hero__scroll-indicator--hidden` class
+- Hidden on small mobile (< 576px) via `display: none`
+
 ## Internationalization
 
 ### Translation Structure
@@ -167,7 +238,7 @@ Add more `<div class="carousel__slide"><img src="..."></div>` elements inside `.
 const translations = {
   en: {
     nav: { home, experience, education, contact },
-    home: { greeting, name, title, summary, downloadResume, contactMe },
+    home: { greeting, name, title, titles, titlePauses, summary, downloadResume, contactMe },
     experience: { title, subtitle, roles... },
     education: { title, subtitle, degrees... },
     contact: { title, subtitle, fields..., submit, success, errors... }
@@ -238,5 +309,6 @@ The architecture supports:
 
 ## Version History
 
+- v1.2 — Added typing effect (sequential, non-looping), animated gradient background, staggered entrance animations, and scroll indicator to hero section
 - v1.1 — Added image carousel to experience cards with 16:9 framing, navigation controls, and touch support
 - v1.0 — Initial implementation with Home, Experience, Education, Contact sections

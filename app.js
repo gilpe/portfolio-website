@@ -13,7 +13,8 @@ const translations = {
             greeting: "Hi, I'm",
             name: "Javier Gil",
             title: "Game designer",
-            titles: ["Game Designer", "IT Consultant"],
+            titles: ["IT Consultant", "Game Designer"],
+            titlePauses: [2000],
             summary: "Born in Madrid. Lover of games, music, and technology. Over 15 years of experience in IT consulting, primarily in backend web development.",
             downloadResume: "Download Resume",
             contactMe: "Contact Me"
@@ -153,7 +154,8 @@ const translations = {
             greeting: "Hola, soy",
             name: "Javier Gil",
             title: "Diseñador de videojuegos",
-            titles: ["Diseñador de Videojuegos", "Consultor IT"],
+            titles: ["Consultor IT", "Diseñador de Videojuegos"],
+            titlePauses: [2000],
             summary: "Nacido en Madrid. Apasionado de los videojuegos, la música y la tecnología. Más de 15 años de experiencia en consultoría informática, principalmente en desarrollo web backend.",
             downloadResume: "Descargar CV",
             contactMe: "Contáctame"
@@ -734,6 +736,7 @@ App.scrollTop = {
 App.typing = {
     el: null,
     titles: [],
+    pauses: [],
     titleIndex: 0,
     charIndex: 0,
     isDeleting: false,
@@ -759,8 +762,10 @@ App.typing = {
     },
 
     loadTitles() {
-        const titles = translations[App.currentLang]?.home?.titles;
+        const home = translations[App.currentLang]?.home;
+        const titles = home?.titles;
         this.titles = Array.isArray(titles) && titles.length > 0 ? titles : [this.el.textContent];
+        this.pauses = Array.isArray(home?.titlePauses) ? home.titlePauses : [];
         this.titleIndex = 0;
         this.charIndex = 0;
         this.isDeleting = false;
@@ -776,8 +781,12 @@ App.typing = {
             this.el.textContent = current.substring(0, this.charIndex);
 
             if (this.charIndex === current.length) {
+                if (this.titleIndex >= this.titles.length - 1) {
+                    return;
+                }
                 this.isDeleting = true;
-                this.timeout = setTimeout(() => this.tick(), this.pauseEnd);
+                const pause = this.pauses[this.titleIndex] ?? this.pauseEnd;
+                this.timeout = setTimeout(() => this.tick(), pause);
                 return;
             }
             this.timeout = setTimeout(() => this.tick(), this.typeSpeed);
@@ -787,7 +796,7 @@ App.typing = {
 
             if (this.charIndex === 0) {
                 this.isDeleting = false;
-                this.titleIndex = (this.titleIndex + 1) % this.titles.length;
+                this.titleIndex++;
                 this.timeout = setTimeout(() => this.tick(), this.pauseStart);
                 return;
             }
