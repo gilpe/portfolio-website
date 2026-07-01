@@ -13,6 +13,7 @@ const translations = {
             greeting: "Hi, I'm",
             name: "Javier Gil",
             title: "Game designer",
+            titles: ["Game Designer", "IT Consultant"],
             summary: "Born in Madrid. Lover of games, music, and technology. Over 15 years of experience in IT consulting, primarily in backend web development.",
             downloadResume: "Download Resume",
             contactMe: "Contact Me"
@@ -152,6 +153,7 @@ const translations = {
             greeting: "Hola, soy",
             name: "Javier Gil",
             title: "Diseñador de videojuegos",
+            titles: ["Diseñador de Videojuegos", "Consultor IT"],
             summary: "Nacido en Madrid. Apasionado de los videojuegos, la música y la tecnología. Más de 15 años de experiencia en consultoría informática, principalmente en desarrollo web backend.",
             downloadResume: "Descargar CV",
             contactMe: "Contáctame"
@@ -297,6 +299,8 @@ const App = {
         this.form.init();
         this.carousel.init();
         this.scrollTop.init();
+        this.typing.init();
+        this.scrollIndicator.init();
     }
 };
 
@@ -393,6 +397,10 @@ App.i18n = {
                 });
             }
         });
+
+        if (App.typing && App.typing.el) {
+            App.typing.restart();
+        }
     },
 
     getTranslation(key, lang) {
@@ -721,8 +729,107 @@ App.scrollTop = {
 };
 
 /* ==========================================
-   INITIALIZE ON DOM READY
-   ========================================== */
+    TYPING EFFECT
+    ========================================== */
+App.typing = {
+    el: null,
+    titles: [],
+    titleIndex: 0,
+    charIndex: 0,
+    isDeleting: false,
+    typeSpeed: 80,
+    deleteSpeed: 40,
+    pauseEnd: 2000,
+    pauseStart: 500,
+    timeout: null,
+    prefersReducedMotion: false,
+
+    init() {
+        this.el = document.querySelector('.hero__title-text');
+        this.prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (!this.el) return;
+
+        this.loadTitles();
+        if (this.prefersReducedMotion) {
+            this.el.textContent = this.titles[0] || '';
+        } else {
+            this.tick();
+        }
+    },
+
+    loadTitles() {
+        const titles = translations[App.currentLang]?.home?.titles;
+        this.titles = Array.isArray(titles) && titles.length > 0 ? titles : [this.el.textContent];
+        this.titleIndex = 0;
+        this.charIndex = 0;
+        this.isDeleting = false;
+    },
+
+    tick() {
+        if (!this.el) return;
+
+        const current = this.titles[this.titleIndex];
+
+        if (!this.isDeleting) {
+            this.charIndex++;
+            this.el.textContent = current.substring(0, this.charIndex);
+
+            if (this.charIndex === current.length) {
+                this.isDeleting = true;
+                this.timeout = setTimeout(() => this.tick(), this.pauseEnd);
+                return;
+            }
+            this.timeout = setTimeout(() => this.tick(), this.typeSpeed);
+        } else {
+            this.charIndex--;
+            this.el.textContent = current.substring(0, this.charIndex);
+
+            if (this.charIndex === 0) {
+                this.isDeleting = false;
+                this.titleIndex = (this.titleIndex + 1) % this.titles.length;
+                this.timeout = setTimeout(() => this.tick(), this.pauseStart);
+                return;
+            }
+            this.timeout = setTimeout(() => this.tick(), this.deleteSpeed);
+        }
+    },
+
+    restart() {
+        clearTimeout(this.timeout);
+        this.loadTitles();
+        if (this.prefersReducedMotion) {
+            this.el.textContent = this.titles[0] || '';
+        } else {
+            this.tick();
+        }
+    }
+};
+
+/* ==========================================
+    SCROLL INDICATOR
+    ========================================== */
+App.scrollIndicator = {
+    init() {
+        const indicator = document.querySelector('.hero__scroll-indicator');
+        if (!indicator) return;
+
+        const onScroll = () => {
+            if (window.scrollY > 100) {
+                indicator.classList.add('hero__scroll-indicator--hidden');
+            } else {
+                indicator.classList.remove('hero__scroll-indicator--hidden');
+            }
+        };
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+    }
+};
+
+/* ==========================================
+    INITIALIZE ON DOM READY
+    ========================================== */
 document.addEventListener('DOMContentLoaded', () => {
     App.init();
 });
