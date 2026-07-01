@@ -21,6 +21,10 @@
     --accent-magenta: #c678dd;
     --accent-orange: #d19a66;
 
+    --profile-gradient-top: #e5c07b;
+    --profile-gradient-mid: #d19a66;
+    --profile-gradient-bottom: #e06c75;
+
     --border-color: #3e4452;
     --border-light: #2c313a;
 
@@ -596,7 +600,7 @@ p {
     box-shadow: var(--shadow-xl);
     position: relative;
     z-index: 1;
-    background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-yellow) 25%, var(--accent-orange) 50%, var(--accent-red) 75%);
+    background: linear-gradient(180deg, var(--profile-gradient-top) 25%, var(--profile-gradient-mid) 50%, var(--profile-gradient-bottom) 75%);
 }
 
 .hero__profile-placeholder {
