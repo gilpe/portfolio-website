@@ -516,7 +516,7 @@ p {
 .hero__name {
     font-size: var(--text-6xl);
     font-weight: 800;
-    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    background: linear-gradient(135deg, var(--accent-magenta) 20%, var(--accent-blue) 40%, var(--accent-cyan) 60%, var(--accent-green) 80%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -641,9 +641,12 @@ p {
 }
 
 @keyframes scrollBounce {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateX(-50%) translateY(0);
     }
+
     50% {
         transform: translateX(-50%) translateY(15px);
     }
