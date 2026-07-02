@@ -25,6 +25,7 @@ const translations = {
             responsibilities: "Key Responsibilities:",
             technologies: "Technologies:",
             mediaPlaceholder: "Project Screenshot",
+            learnMore: "Learn More",
             items: [
                 {
                     role: "Game designer",
@@ -166,6 +167,7 @@ const translations = {
             responsibilities: "Responsabilidades Clave:",
             technologies: "Tecnologías:",
             mediaPlaceholder: "Captura de Proyecto",
+            learnMore: "Saber más",
             items: [
                 {
                     role: "Game designer",

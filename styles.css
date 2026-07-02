@@ -826,6 +826,10 @@ p {
 /* Carousel */
 .experience-card__media {
     margin-top: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
 }
 
 .carousel {
