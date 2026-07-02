@@ -354,11 +354,16 @@ p {
 .nav__logo {
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
     transition: opacity var(--transition-fast);
 }
 
 .nav__logo-img {
-    height: 40px;
+    height: 35px;
     width: auto;
 }
 

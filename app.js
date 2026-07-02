@@ -11,7 +11,7 @@ const translations = {
         },
         home: {
             greeting: "Hi, I'm",
-            name: "Javier Gil",
+            name: "Gilpe",
             title: "Game designer",
             titles: ["IT Consultant", "Game Designer"],
             titlePauses: [2000],
@@ -153,7 +153,7 @@ const translations = {
         },
         home: {
             greeting: "Hola, soy",
-            name: "Javier Gil",
+            name: "Gilpe",
             title: "Diseñador de videojuegos",
             titles: ["Consultor IT", "Diseñador de Videojuegos"],
             titlePauses: [2000],
