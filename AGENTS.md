@@ -33,16 +33,18 @@ Example:
 /
 ├── index.html          # Single-page application entry point
 ├── styles.css          # All styles (variables, components, responsive)
+├── translations.js     # i18n translation objects (en/es)
 ├── app.js              # Theme, i18n, navigation, animations, form
+├── server.js           # Local development server with security headers
 ├── SPECS.md            # Project specification
 ├── AGENTS.md           # This file — architecture documentation
 └── assets/
     ├── images/
-    │   ├── profile-placeholder.jpg
-    │   ├── experience-01.jpg
-    │   └── experience-02.jpg
+    │   ├── profile.webp
+    │   ├── logo-white.webp
+    │   └── [experience screenshots]
     └── documents/
-        └── resume-placeholder.pdf
+        └── CV-Javier_Gil_Perez(2026).pdf
 ```
 
 ## CSS Architecture
@@ -80,14 +82,16 @@ All colors are CSS custom properties on `:root` (dark) and `[data-theme="light"]
 --bg-primary        /* Main background */
 --bg-secondary      /* Card/section backgrounds */
 --bg-tertiary       /* Elevated surfaces */
+--bg-elevated       /* Form/card elevated background */
 --text-primary      /* Main text */
 --text-secondary    /* Muted text */
 --text-tertiary     /* Subtle text */
 --accent-blue       /* Primary accent */
+--accent-blue-hover /* Primary accent hover state */
 --accent-cyan       /* Secondary accent */
 --accent-green      /* Success/highlight */
---accent-yellow     /* Warning/highlight */
 --accent-red        /* Error/danger */
+--accent-magenta    /* Hero gradient accent */
 --border-color      /* Borders and dividers */
 ```
 
@@ -104,6 +108,15 @@ Consistent spacing using CSS custom properties:
 --space-2xl: 3rem;
 --space-3xl: 4rem;
 --space-4xl: 6rem;
+--space-5xl: 8rem;
+```
+
+### Border Radius
+
+```css
+--radius-md: 0.5rem;
+--radius-lg: 1rem;
+--radius-full: 9999px;
 ```
 
 ## JavaScript Architecture
@@ -149,6 +162,12 @@ const App = {
 - `showError(field, message)` — Display field error
 - `showSuccess()` — Display success state
 - `reset()` — Clear form after submission
+
+The form uses Web3Forms API for email delivery. Configuration:
+- Access key stored in hidden form field (public, safe to expose)
+- Honeypot field (`botcheck`) for spam protection
+- `from_name` and `replyto` fields mapped from user input for proper email formatting
+- Network errors displayed via `.form-error-banner` with auto-dismiss after 5s
 
 ### CarouselManager
 - `init()` — Find all `[data-carousel]` elements, call `setup()` on each
@@ -318,7 +337,7 @@ The `LanguageManager.apply()` function finds all elements with `data-i18n` attri
 
 1. Add section to `index.html` with appropriate `id` and `data-i18n` attributes
 2. Add section styles to `styles.css` in the designated section block
-3. Add translations to both `en` and `es` objects in `app.js`
+3. Add translations to both `en` and `es` objects in `translations.js`
 4. Add nav link to both language translation objects
 5. Update `AGENTS.md` with new section documentation
 
@@ -329,13 +348,13 @@ The architecture supports:
 - Skills section (progress bars or tag cloud)
 - Blog section (article list with routing)
 - Testimonials section (carousel or grid)
-- Backend contact integration (replace simulated submit)
 - Analytics integration (add tracking script)
 - Resume generation (PDF generation from content)
 - Multimedia galleries (lightbox component)
 
 ## Version History
 
+- v1.3 — Security hardening (server.js headers), code cleanup (extracted translations.js, removed unused CSS), Web3Forms integration
 - v1.2 — Added typing effect (sequential, non-looping), animated gradient background, staggered entrance animations, and scroll indicator to hero section
 - v1.1 — Added image carousel to experience cards with 16:9 framing, navigation controls, and touch support
 - v1.0 — Initial implementation with Home, Experience, Education, Contact sections

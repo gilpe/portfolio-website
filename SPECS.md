@@ -40,7 +40,7 @@ The website must communicate professionalism, maturity, credibility, and attenti
 1. **Home** - Hero with greeting, name, title, summary, profile image, CTAs, social links
 2. **Experience** - Timeline/card layout for professional history
 3. **Education** - Card-based layout for degrees, certifications, languages
-4. **Contact** - Validated form with simulated submission
+4. **Contact** - Validated form with Web3Forms integration for email delivery
 
 ### Accessibility
 - Semantic HTML throughout
@@ -65,4 +65,7 @@ The website must communicate professionalism, maturity, credibility, and attenti
 
 ## Version History
 
+- v1.3 — Security hardening (server.js headers), code cleanup (extracted translations.js, removed unused CSS), Web3Forms integration
+- v1.2 — Added typing effect (sequential, non-looping), animated gradient background, staggered entrance animations, and scroll indicator to hero section
+- v1.1 — Added image carousel to experience cards with 16:9 framing, navigation controls, and touch support
 - v1.0 — Initial implementation (Home, Experience, Education, Contact)
