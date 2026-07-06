@@ -13,10 +13,13 @@ const MIME_TYPES = {
   ".png": "image/png",
   ".gif": "image/gif",
   ".svg": "image/svg+xml",
+  ".webp": "image/webp",
   ".pdf": "application/pdf",
   ".ico": "image/x-icon",
   ".woff": "font/woff",
   ".woff2": "font/woff2",
+  ".txt": "text/plain",
+  ".xml": "application/xml"
 };
 
 const server = http.createServer((req, res) => {
