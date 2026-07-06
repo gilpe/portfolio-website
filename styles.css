@@ -26,10 +26,8 @@
     --profile-gradient-bottom: #e06c75;
 
     --border-color: #3e4452;
-    --border-light: #2c313a;
 
     /* Shadows */
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
     --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
     --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3);
     --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.3);
@@ -63,10 +61,8 @@
     --space-5xl: 8rem;
 
     /* Border Radius */
-    --radius-sm: 0.25rem;
     --radius-md: 0.5rem;
     --radius-lg: 1rem;
-    --radius-xl: 1.5rem;
     --radius-full: 9999px;
 
     /* Transitions */
@@ -100,9 +96,7 @@
     --accent-orange: #c17d3a;
 
     --border-color: #e0e0e0;
-    --border-light: #eeeeee;
 
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
     --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
     --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
@@ -1212,8 +1206,13 @@ p {
 }
 
 @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .form-textarea {
@@ -1398,28 +1397,6 @@ p {
 
     50% {
         opacity: 0;
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
     }
 }
 
