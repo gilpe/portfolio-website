@@ -136,7 +136,8 @@ const translations = {
                     name: "Please enter your name",
                     email: "Please enter a valid email address",
                     subject: "Please enter a subject",
-                    message: "Please enter your message"
+                    message: "Please enter your message",
+                    network: "Something went wrong. Please try again later."
                 }
             }
         },
@@ -278,7 +279,8 @@ const translations = {
                     name: "Por favor ingresa tu nombre",
                     email: "Por favor ingresa un correo válido",
                     subject: "Por favor ingresa un asunto",
-                    message: "Por favor ingresa tu mensaje"
+                    message: "Por favor ingresa tu mensaje",
+                    network: "Algo salió mal. Por favor inténtalo de nuevo más tarde."
                 }
             }
         },
@@ -546,9 +548,45 @@ App.form = {
     handleSubmit(e) {
         e.preventDefault();
 
-        if (this.validate()) {
-            this.showSuccess();
-        }
+        if (!this.validate()) return;
+
+        const form = document.getElementById('contact-form');
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const btnIcon = submitBtn.querySelector('.btn__icon');
+        const btnText = submitBtn.querySelector('[data-i18n]');
+        const originalIcon = btnIcon.className;
+        const originalText = btnText.textContent;
+
+        submitBtn.classList.add('btn--loading');
+        btnIcon.className = 'fas fa-spinner btn__icon';
+        btnText.textContent = '...';
+
+        const formData = new FormData(form);
+        formData.set('from_name', formData.get('name'));
+        formData.set('replyto', formData.get('email'));
+        const data = Object.fromEntries(formData);
+
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(result => {
+            if (result.success) {
+                this.showSuccess();
+            } else {
+                this.showNetworkError();
+            }
+        })
+        .catch(() => {
+            this.showNetworkError();
+        })
+        .finally(() => {
+            submitBtn.classList.remove('btn--loading');
+            btnIcon.className = originalIcon;
+            btnText.textContent = originalText;
+        });
     },
 
     validate() {
@@ -600,6 +638,25 @@ App.form = {
         }
     },
 
+    showNetworkError() {
+        const form = document.getElementById('contact-form');
+        if (!form) return;
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const errorMsg = translations[App.currentLang].contact.form.errors.network;
+
+        let banner = document.getElementById('form-network-error');
+        if (!banner) {
+            banner = document.createElement('div');
+            banner.id = 'form-network-error';
+            banner.className = 'form-error-banner';
+            submitBtn.parentNode.insertBefore(banner, submitBtn);
+        }
+        banner.textContent = errorMsg;
+        banner.classList.add('visible');
+
+        setTimeout(() => banner.classList.remove('visible'), 5000);
+    },
+
     showSuccess() {
         const form = document.getElementById('contact-form');
         const success = document.getElementById('form-success');
@@ -620,6 +677,7 @@ App.form = {
     reset() {
         const form = document.getElementById('contact-form');
         const success = document.getElementById('form-success');
+        const networkError = document.getElementById('form-network-error');
 
         if (form) {
             form.reset();
@@ -630,6 +688,10 @@ App.form = {
 
         if (success) {
             success.classList.remove('visible');
+        }
+
+        if (networkError) {
+            networkError.classList.remove('visible');
         }
 
         ['name', 'email', 'subject', 'message'].forEach(field => {
