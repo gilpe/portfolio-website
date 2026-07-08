@@ -1038,7 +1038,7 @@ p {
 .education-card__languages {
     display: flex;
     flex-direction: column;
-    gap: var(--space-2xl);
+    gap: var(--space-xl);
     margin-top: var(--space-xl);
 }
 
@@ -1046,19 +1046,22 @@ p {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: var(--space-md);
 }
 
 .language-item__name {
     font-weight: 600;
     color: var(--text-primary);
-    min-width: 100px;
+    min-width: 80px;
+    flex-shrink: 0;
 }
 
 .language-item__level {
     display: flex;
-    gap: var(--space-md);
-    width: 140px;
+    gap: var(--space-sm);
+    flex: 1;
     justify-content: center;
+    min-width: 0;
 }
 
 .language-item__dot {
@@ -1067,6 +1070,7 @@ p {
     border-radius: var(--radius-full);
     background: var(--bg-tertiary);
     border: 1px solid var(--border-color);
+    flex-shrink: 0;
 }
 
 .language-item__dot.filled {
@@ -1077,8 +1081,9 @@ p {
 .language-item__label {
     font-size: var(--text-sm);
     color: var(--text-tertiary);
-    min-width: 70px;
+    min-width: 60px;
     text-align: right;
+    flex-shrink: 0;
 }
 
 /* ==========================================
@@ -1658,5 +1663,16 @@ p {
 
     .contact__form {
         padding: var(--space-lg);
+    }
+
+    .language-item {
+        flex-wrap: wrap;
+        gap: var(--space-sm);
+    }
+
+    .language-item__level {
+        order: 3;
+        width: 100%;
+        justify-content: flex-start;
     }
 }
