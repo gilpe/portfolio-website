@@ -59,6 +59,5 @@ portfolio-website/
 | **Contact** | Validated form with email delivery |
 
 ## ⚖️ License
-
-© 2026 Javier Gil. All rights reserved.
-This project and its contents are proprietary. No part may be reproduced, distributed, or used without prior written permission.
+> [!WARNING]
+This repository is published solely for portfolio and evaluation purposes. It is not open source. The source code may be viewed but may not be copied, reused, modified, or redistributed without explicit permission.
