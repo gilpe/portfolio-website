@@ -16,20 +16,35 @@ const App = {
 };
 
 App.theme = {
+    mediaQuery: null,
+
+    getSystemTheme() {
+        return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    },
+
     init() {
-        const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
-        this.apply(savedTheme);
+        this.mediaQuery = window.matchMedia('(prefers-color-scheme: light)');
+        const savedTheme = localStorage.getItem('portfolio-theme');
+        this.apply(savedTheme || this.getSystemTheme());
+
+        this.mediaQuery.addEventListener('change', (e) => {
+            if (!localStorage.getItem('portfolio-theme')) {
+                this.apply(e.matches ? 'light' : 'dark');
+            }
+        });
+
         document.getElementById('theme-toggle')?.addEventListener('click', () => this.toggle());
     },
 
     toggle() {
-        this.apply(App.currentTheme === 'dark' ? 'light' : 'dark');
+        const newTheme = App.currentTheme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('portfolio-theme', newTheme);
+        this.apply(newTheme);
     },
 
     apply(theme) {
         App.currentTheme = theme;
         document.documentElement.setAttribute('data-theme', theme);
-        localStorage.setItem('portfolio-theme', theme);
         const icon = document.querySelector('.nav__theme-icon');
         if (icon) icon.className = theme === 'dark' ? 'fas fa-sun nav__theme-icon' : 'fas fa-moon nav__theme-icon';
     }
