@@ -1310,6 +1310,24 @@ p {
     color: var(--text-tertiary);
 }
 
+.footer__credit-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer__credit-link:hover {
+    color: var(--text-secondary);
+}
+
+.footer__heart {
+    display: inline-block;
+    transition: transform var(--transition-fast);
+}
+
+.footer__credit-link:hover ~ .footer__heart {
+    transform: scale(1.3);
+}
+
 .footer__links {
     display: flex;
     gap: var(--space-lg);

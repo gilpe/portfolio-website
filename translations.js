@@ -139,7 +139,10 @@ const translations = {
             }
         },
         footer: {
-            copyright: "© 2026 Made by Gilpe with ♥️."
+            copyrightPrefix: "© 2026 Made by",
+            copyrightName: "Gilpe",
+            copyrightSuffix: "with",
+            copyrightHeart: "♥️"
         }
     },
     es: {
@@ -282,7 +285,10 @@ const translations = {
             }
         },
         footer: {
-            copyright: "© 2026 Hecho por Gilpe con ♥️."
+            copyrightPrefix: "© 2026 Hecho por",
+            copyrightName: "Gilpe",
+            copyrightSuffix: "con",
+            copyrightHeart: "♥️"
         }
     }
 };
