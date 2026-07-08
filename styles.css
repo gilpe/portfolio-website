@@ -1625,6 +1625,10 @@ p {
         padding-top: calc(var(--nav-height) + var(--space-2xl));
     }
 
+    .hero__title {
+        font-size: var(--text-2xl);
+    }
+
     .hero__profile {
         width: 220px;
         height: 220px;
