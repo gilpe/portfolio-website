@@ -99,7 +99,7 @@ const translations = {
                 title: "Languages",
                 items: [
                     { name: "Spanish", level: "Native" },
-                    { name: "English", level: "Advance" }
+                    { name: "English", level: "B2" }
                 ]
             },
             training: {
@@ -242,7 +242,7 @@ const translations = {
                 title: "Idiomas",
                 items: [
                     { name: "Español", level: "Nativo" },
-                    { name: "Inglés", level: "Avanzado" }
+                    { name: "Inglés", level: "B2" }
                 ]
             },
             training: {
