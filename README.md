@@ -1,14 +1,14 @@
-# Portfolio Website
+# 📋 Portfolio Website
 
 This is my Game Designer portfolio website.
 
 A single-page, fully responsive site built from scratch with vanilla HTML, CSS, and JavaScript. No frameworks, no build tools — just clean, hand-crafted code.
 
-## Live Demo
+## 🚀 Live Demo
 
 [https://javigilpe.com](https://javigilpe.com)
 
-## Features
+## ✨ Features
 
 - **Dark/Light theme** — follows system preference (`prefers-color-scheme`), with manual toggle
 - **Bilingual** — English and Spanish, auto-detected from browser language (`navigator.languages`)
@@ -19,7 +19,7 @@ A single-page, fully responsive site built from scratch with vanilla HTML, CSS, 
 - **Accessible** — semantic HTML, keyboard navigation, ARIA attributes, `prefers-reduced-motion` support
 - **SEO-ready** — Open Graph tags, sitemap, robots.txt, structured meta descriptions
 
-## Tech Stack
+## 💻 Tech Stack
 
 | Layer | Technology |
 |---|---|
@@ -31,7 +31,7 @@ A single-page, fully responsive site built from scratch with vanilla HTML, CSS, 
 | Email | Web3Forms API |
 | Server | Node.js (local dev server only) |
 
-## Project Structure
+## 🧩 Project Structure
 
 ```
 portfolio-website/
@@ -49,7 +49,7 @@ portfolio-website/
     └── favicons/       # Favicon set
 ```
 
-## Sections
+## 📚 Sections
 
 | Section | Description |
 |---|---|
@@ -58,7 +58,7 @@ portfolio-website/
 | **Education** | Degrees, certifications, and language proficiencies |
 | **Contact** | Validated form with email delivery |
 
-## License
+## ⚖️ License
 
 © 2026 Javier Gil. All rights reserved.
 This project and its contents are proprietary. No part may be reproduced, distributed, or used without prior written permission.
