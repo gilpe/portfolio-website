@@ -40,7 +40,7 @@ const translations = {
                 {
                     role: "Game designer",
                     company: "E-Mask.",
-                    period: "Jun 2019 - Dec 2021",
+                    period: "Jan 2026 - Feb 2026",
                     location: "Madrid, Spain",
                     description: "Participated as a designer and animator on this stealth-puzzle game created during the 2026 Global Game Jam weekend.",
                     responsibilities: [
