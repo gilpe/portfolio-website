@@ -1638,6 +1638,10 @@ p {
         height: 220px;
     }
 
+    .hero__summary {
+        font-size: var(--text-base);
+    }
+
     .timeline::before {
         left: 0;
     }
