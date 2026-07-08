@@ -22,7 +22,7 @@ A single-page, fully responsive site built from scratch with vanilla HTML, CSS, 
 ## 💻 Tech Stack
 
 | Layer | Technology |
-|---|---|
+| --- | --- |
 | Markup | HTML5 |
 | Styling | CSS3 (custom properties, BEM naming) |
 | Logic | Vanilla JavaScript (ES6 modules) |
@@ -33,7 +33,7 @@ A single-page, fully responsive site built from scratch with vanilla HTML, CSS, 
 
 ## 🧩 Project Structure
 
-```
+```text
 portfolio-website/
 ├── index.html          # Single-page entry point
 ├── styles.css          # All styles (variables, components, responsive)
@@ -52,12 +52,13 @@ portfolio-website/
 ## 📚 Sections
 
 | Section | Description |
-|---|---|
+| --- | --- |
 | **Home** | Hero with greeting, animated title, summary, CTAs, and social links |
 | **Experience** | Timeline of professional roles with image carousels |
 | **Education** | Degrees, certifications, and language proficiencies |
 | **Contact** | Validated form with email delivery |
 
 ## ⚖️ License
+
 > [!WARNING]
 This repository is published solely for portfolio and evaluation purposes. It is not open source. The source code may be viewed but may not be copied, reused, modified, or redistributed without explicit permission.
