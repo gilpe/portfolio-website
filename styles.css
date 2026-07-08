@@ -1609,6 +1609,18 @@ p {
         transform: rotate(90deg);
     }
 
+    .section {
+        padding: var(--space-3xl) 0;
+    }
+
+    .section__header {
+        margin-bottom: var(--space-2xl);
+    }
+
+    .section__title {
+        font-size: var(--text-3xl);
+    }
+
     .hero {
         padding-top: calc(var(--nav-height) + var(--space-2xl));
     }
@@ -1623,7 +1635,8 @@ p {
     }
 
     .timeline__item {
-        padding-left: var(--space-2xl);
+        padding-left: var(--space-lg);
+        margin-bottom: var(--space-xl);
     }
 
     .timeline__marker {
