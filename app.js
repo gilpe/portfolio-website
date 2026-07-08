@@ -51,18 +51,31 @@ App.theme = {
 };
 
 App.i18n = {
+    getSystemLang() {
+        const langs = navigator.languages || [navigator.language];
+        return langs.some(l => l.startsWith('es')) ? 'es' : 'en';
+    },
+
     init() {
-        const savedLang = localStorage.getItem('portfolio-lang') || 'en';
-        this.apply(savedLang);
+        const savedLang = localStorage.getItem('portfolio-lang');
+        this.apply(savedLang || this.getSystemLang());
+
+        window.addEventListener('languagechange', () => {
+            if (!localStorage.getItem('portfolio-lang')) {
+                this.apply(this.getSystemLang());
+            }
+        });
+
         document.getElementById('lang-toggle')?.addEventListener('click', () => {
-            this.apply(App.currentLang === 'en' ? 'es' : 'en');
+            const newLang = App.currentLang === 'en' ? 'es' : 'en';
+            localStorage.setItem('portfolio-lang', newLang);
+            this.apply(newLang);
         });
     },
 
     apply(lang) {
         App.currentLang = lang;
         document.documentElement.setAttribute('lang', lang);
-        localStorage.setItem('portfolio-lang', lang);
         const langText = document.querySelector('.nav__lang-text');
         if (langText) langText.textContent = lang === 'en' ? 'ES' : 'EN';
         this.updateContent(lang);
