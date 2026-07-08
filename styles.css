@@ -979,6 +979,8 @@ p {
 
 .education-card__content {
     flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .education-card__title {
@@ -1040,6 +1042,8 @@ p {
     flex-direction: column;
     gap: var(--space-xl);
     margin-top: var(--space-xl);
+    flex: 1;
+    justify-content: center;
 }
 
 .language-item {
