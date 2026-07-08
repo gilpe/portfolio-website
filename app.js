@@ -24,22 +24,17 @@ App.theme = {
 
     init() {
         this.mediaQuery = window.matchMedia('(prefers-color-scheme: light)');
-        const savedTheme = localStorage.getItem('portfolio-theme');
-        this.apply(savedTheme || this.getSystemTheme());
+        this.apply(this.getSystemTheme());
 
         this.mediaQuery.addEventListener('change', (e) => {
-            if (!localStorage.getItem('portfolio-theme')) {
-                this.apply(e.matches ? 'light' : 'dark');
-            }
+            this.apply(e.matches ? 'light' : 'dark');
         });
 
         document.getElementById('theme-toggle')?.addEventListener('click', () => this.toggle());
     },
 
     toggle() {
-        const newTheme = App.currentTheme === 'dark' ? 'light' : 'dark';
-        localStorage.setItem('portfolio-theme', newTheme);
-        this.apply(newTheme);
+        this.apply(App.currentTheme === 'dark' ? 'light' : 'dark');
     },
 
     apply(theme) {
@@ -57,19 +52,14 @@ App.i18n = {
     },
 
     init() {
-        const savedLang = localStorage.getItem('portfolio-lang');
-        this.apply(savedLang || this.getSystemLang());
+        this.apply(this.getSystemLang());
 
         window.addEventListener('languagechange', () => {
-            if (!localStorage.getItem('portfolio-lang')) {
-                this.apply(this.getSystemLang());
-            }
+            this.apply(this.getSystemLang());
         });
 
         document.getElementById('lang-toggle')?.addEventListener('click', () => {
-            const newLang = App.currentLang === 'en' ? 'es' : 'en';
-            localStorage.setItem('portfolio-lang', newLang);
-            this.apply(newLang);
+            this.apply(App.currentLang === 'en' ? 'es' : 'en');
         });
     },
 

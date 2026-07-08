@@ -139,18 +139,18 @@ const App = {
 
 ### ThemeManager
 - `getSystemTheme()` — Detect OS preference via `prefers-color-scheme` media query
-- `init()` — Load saved theme or detect system preference, listen for system changes
-- `toggle()` — Switch between dark/light, persist to localStorage
-- `apply(theme)` — Set `data-theme` attribute, update icon (does not persist)
+- `init()` — Detect system theme, listen for system changes
+- `toggle()` — Switch between dark/light (session only)
+- `apply(theme)` — Set `data-theme` attribute, update icon
 
-Theme defaults to system preference (`prefers-color-scheme`) unless the user has explicitly toggled it. If no preference is saved, the page reacts to live OS theme changes. Once the user toggles manually, the choice is persisted and system preference is ignored.
+Theme always follows system preference (`prefers-color-scheme`) by default. Users can toggle during the session, but the choice is not persisted. If the OS theme changes, the page updates in real-time.
 
 ### LanguageManager
 - `getSystemLang()` — Detect browser language via `navigator.languages`, returns `'es'` if any language starts with `es`, else `'en'`
-- `init()` — Load saved language or detect system language, listen for system changes
-- `apply(lang)` — Find all `[data-i18n]` elements, update text (does not persist)
+- `init()` — Detect system language, listen for system changes
+- `apply(lang)` — Find all `[data-i18n]` elements, update text
 
-Language defaults to system/browser language unless the user has explicitly toggled it. If no preference is saved, the page reacts to live browser language changes. Once the user toggles manually, the choice is persisted and system language is ignored.
+Language always follows browser language by default. Users can toggle during the session, but the choice is not persisted. If the browser language changes, the page updates in real-time.
 
 ### NavigationManager
 - `init()` — Setup mobile toggle, smooth scroll, active section
@@ -359,7 +359,7 @@ The architecture supports:
 
 ## Version History
 
-- v1.4 — System preference detection for theme (prefers-color-scheme) and language (navigator.languages), with user override persistence
+- v1.4 — System preference detection for theme (prefers-color-scheme) and language (navigator.languages), session-only user overrides
 - v1.3 — Security hardening (server.js headers), code cleanup (extracted translations.js, removed unused CSS), Web3Forms integration
 - v1.2 — Added typing effect (sequential, non-looping), animated gradient background, staggered entrance animations, and scroll indicator to hero section
 - v1.1 — Added image carousel to experience cards with 16:9 framing, navigation controls, and touch support
