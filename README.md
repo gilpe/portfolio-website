@@ -2,7 +2,7 @@
 
 This is my Game Designer portfolio website.
 
-A single-page, fully responsive site built from scratch with vanilla HTML, CSS, and JavaScript. No frameworks, no build tools — just clean, hand-crafted code.
+A single-page, fully responsive site built from scratch with vanilla HTML, CSS, and JavaScript. No frameworks, no build tools — just clean, hand-crafted code with some AI help.
 
 ## 🚀 Live Demo
 

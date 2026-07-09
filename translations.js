@@ -12,7 +12,7 @@ const translations = {
             title: "Game designer",
             titles: ["IT Consultant", "Game Designer"],
             titlePauses: [2000],
-            summary: "Born in Madrid. Lover of games, music, and technology. Over 15 years of experience in IT consulting, primarily in backend web development.",
+            summary: "They call me Gilpe. I'm from Madrid. I'm passionate about video games, mindful technology, and making things with my hands. After more than 15 years building backend systems, I now design things for fun.",
             downloadResume: "Download Resume",
             contactMe: "Contact Me"
         },
@@ -158,7 +158,7 @@ const translations = {
             title: "Diseñador de videojuegos",
             titles: ["Consultor IT", "Diseñador de Videojuegos"],
             titlePauses: [2000],
-            summary: "Nacido en Madrid. Apasionado de los videojuegos, la música y la tecnología. Más de 15 años de experiencia en consultoría informática, principalmente en desarrollo web backend.",
+            summary: "Me llaman Gilpe. Soy de Madrid. Entusiasta de los videojuegos, la tecnología consciente y crear con las manos. Tras más de 15 años desarrollando backend, ahora diseño cosas para divertir.",
             downloadResume: "Descargar CV",
             contactMe: "Contáctame"
         },
